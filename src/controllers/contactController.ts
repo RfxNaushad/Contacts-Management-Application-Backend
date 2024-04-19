@@ -32,6 +32,7 @@ export async function updateContact(req: Request, res: Response) {
 export async function deleteContact(req: Request, res: Response) {
     try {
         const deletedContact = await Contact.findByIdAndDelete(req.params.id);
+        res.send("deleted")
         if(!deletedContact) return res.status(404).send()
     } catch (error) {
          res.status(500).send(error);
